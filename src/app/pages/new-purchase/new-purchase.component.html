@@ -1,0 +1,49 @@
+<div class="card">
+    <div class="card-header bg-primary">
+        New Purchase
+    </div>
+    <div class="card-body">
+        <div class="row">
+            <div class="col-3">
+                <label for="">Invoice No</label>
+                <input type="text" class="form-control" [(ngModel)]="purchaseObj.invoiceNo" >
+            </div>
+            <div class="col-3">
+                <label for="">Supplier</label>
+                <input type="text" class="form-control" [(ngModel)]="purchaseObj.supplierName"  >
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-3">
+                <label for="">Purchase Date</label>
+                <input type="date" class="form-control" [(ngModel)]="purchaseObj.purchaseDate"  >
+            </div>
+             
+        </div>
+        <div class="row">
+            <div class="col-3">
+                <label for="">Select Product</label>
+                <select class="form-control" [(ngModel)]="purchaseObj.productId">
+                    <option value="">Select Product</option>
+                    <option *ngFor="let item of productList" [value]="item.productId"> {{item.productName}}</option>
+                </select> 
+            </div>
+            <div class="col-3">
+                <label for="">Quantity</label>
+                <input type="number" class="form-control" [(ngModel)]="purchaseObj.quantity"  >
+            </div>
+            <div class="col-3">
+                <label for="">Total Amount</label>
+                <input type="number" class="form-control" [(ngModel)]="purchaseObj.invoiceAmount"  >
+            </div>
+        </div>
+        <div class="row pt-3">
+            <div class="col-3 text-end">
+                <button class="btn btn-sm btn-secondary" routerLink="/purchase-list">Go To List</button>
+            </div>
+            <div class="col-3 text-center">
+                <button class="btn btn-sm btn-success" (click)="onSave()" >Save Purchase</button>
+            </div> 
+        </div>
+    </div>
+</div>

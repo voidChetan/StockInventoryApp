@@ -1,0 +1,34 @@
+<div class="row">
+    <div class="col-12 text-end">
+        <button class="btn btn-sm btn-success" routerLink="/new-Sale" >New Sale</button>
+    </div>
+</div>
+<div class="row">
+    <div class="col-3" *ngFor="let purchase of saleList">
+        <div class="profile-card-4 text-center">
+            <div class="profile-content">
+                <div class="profile-name">  {{purchase.mobileNo}}
+                    <p>{{purchase.invoiceNo}}</p>
+                </div>
+                <div class="profile-description">{{purchase.productName}}</div>
+                <div class="row">
+                    <div class="col-sm-4">
+                        <div class="profile-overview">
+                            <p>Date</p>
+                            <p>{{purchase.saleDate | date:'dd-MMM-yy'}}</p></div>
+                    </div>
+                    <div class="col-sm-4">
+                        <div class="profile-overview">
+                            <p>Quantity</p>
+                            <p>{{purchase.quantity}}</p></div>
+                    </div>
+                    <div class="col-sm-4">
+                        <div class="profile-overview">
+                            <p>Amount</p>
+                            <p>{{purchase.totalAmount}}</p></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

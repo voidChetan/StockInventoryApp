@@ -1,0 +1,27 @@
+<div class="card">
+    <div class="card-header bg-primary">
+        Stock List
+    </div>
+    <div class="card-body">
+        <table class="table table-bordered">
+            <thead>
+                <tr>
+                    <th>Sr No</th>
+                    <th>Product Name</th>
+                    <th>Created Date</th>
+                    <th>  Modified Date</th>
+                    <th>Quantity</th> 
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let stock of stockList; let sr= index" >
+                    <td> {{sr+1}}</td>
+                    <td>{{stock.productName}}</td>
+                    <td>{{stock.createdDate |date:'dd-MMM-yyyy'}}</td>
+                    <td>{{stock.lastModifiedDate |date:'dd-MMM-yyyy'}}</td>
+                    <td [ngClass]="stock.quantity == 0?'bg-danger':''">{{stock.quantity}}</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</div>

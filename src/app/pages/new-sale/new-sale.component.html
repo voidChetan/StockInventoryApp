@@ -1,0 +1,53 @@
+<div class="card">
+    <div class="card-header bg-primary">
+        New Sale
+    </div>
+    <div class="card-body">
+        <div class="row">
+            <div class="col-3">
+                <label for="">Invoice No</label>
+                <input type="text" class="form-control" [(ngModel)]="saleObj.invoiceNo" >
+            </div>
+            <div class="col-3">
+                <label for="">Customer</label>
+                <input type="text" class="form-control" [(ngModel)]="saleObj.customerName"  >
+            </div>
+            <div class="col-3">
+                <label for="">Mobile</label>
+                <input type="text" class="form-control" [(ngModel)]="saleObj.mobileNo"  >
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-3">
+                <label for="">Sale Date</label>
+                <input type="date" class="form-control" [(ngModel)]="saleObj.saleDate"  >
+            </div>
+             
+        </div>
+        <div class="row">
+            <div class="col-3">
+                <label for="">Select Product</label>
+                <select class="form-control" [(ngModel)]="saleObj.productId" (change)="checkStock()">
+                    <option value="">Select Product</option>
+                    <option *ngFor="let item of productList" [value]="item.productId"> {{item.productName}}</option>
+                </select> 
+            </div>
+            <div class="col-3">
+                <label for="">Quantity</label>
+                <input type="number" class="form-control" [(ngModel)]="saleObj.quantity"  >
+            </div>
+            <div class="col-3">
+                <label for="">Total Amount</label>
+                <input type="number" class="form-control" [(ngModel)]="saleObj.totalAmount"  >
+            </div>
+        </div>
+        <div class="row pt-3">
+            <div class="col-3 text-end">
+                <button class="btn btn-sm btn-secondary" routerLink="/sale-list">Go To List</button>
+            </div>
+            <div class="col-3 text-center">
+                <button class="btn btn-sm btn-success" (click)="onSave()" >Save Sale</button>
+            </div> 
+        </div>
+    </div>
+</div>
